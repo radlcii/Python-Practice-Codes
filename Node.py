@@ -6,7 +6,7 @@ class Node:
 
     def get_data(self):
         return self.data
-    
+
     def get_link0(self):
         return self.link0
 
