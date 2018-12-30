@@ -1,3 +1,8 @@
+# This node class is meant to be generic for use in multiple simple data structures, thus it isn't optimized for any.
+# Written by Robert De La Cruz II on Dec 30 2018 for self edification
+# Sources looked into include StackOverflow, https://www.codefellows.org/blog/implementing-a-singly-linked-list-in-python/ and https://www.w3schools.com/python/default.asp
+
+
 class Node:
     def _init_(self, data=None, link0=None, link1=None):
         self.data

@@ -1,6 +1,7 @@
 # This is a singly linked list using a Node class that has more links available to it than this list needs.
 # This linked list was originally written with only a tail-insert function.
 # Written by Robert De La Cruz II on Dec 30, 2018 for the purpose of self-edification
+# Sources looked into include StackOverflow, https://www.codefellows.org/blog/implementing-a-singly-linked-list-in-python/ and https://www.w3schools.com/python/default.asp
 
 import Node  # Node class should be in the same directory as this file
 
