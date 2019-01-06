@@ -12,7 +12,7 @@ class SinglyLinkedList:
         self.tail = tail
 
     # This is a tail-insert
-    def insert(self, data):
+    def tailIns(self, data):
         newNode = Node(data)
         if head is None:
             head = newNode
@@ -20,6 +20,12 @@ class SinglyLinkedList:
         else:
             tail.set_link0(newNode)
             tail = tail.link0
+
+    # This is a head-insert
+    def headIns(self, data):
+        newNode = Node(data)
+        newNode.link0 = head
+        head = newNode
 
     def get_size(self):
         current = self.head
