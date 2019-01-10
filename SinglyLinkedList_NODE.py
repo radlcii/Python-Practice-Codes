@@ -64,12 +64,12 @@ class SinglyLinkedList:
             else:
                 previous.set_link0(current.get_link0())
 
-	def printList_HEAD(self):
-		current = self.head
-		while current is not None:
-			print(current.get_data())
+    def printList_HEAD(self):
+        current = self.head
+        while current is not None:
+            print(current.get_data())
 
-	def printList_TAIL(self):
-		current = self.tail
-		while current is not None:
-			print(current.get_data())
+    def printList_TAIL(self):
+        current = self.tail
+        while current is not None:
+            print(current.get_data())
