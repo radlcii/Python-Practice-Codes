@@ -5,7 +5,7 @@ import Node  # Node class should be in the same directory
 
 
 class DoublyLinkedList:
-    def_init(self, head=None, tail=None):
+    def _init_(self, head=None, tail=None):
         self.head = head
         self.tail = tail
 
@@ -95,7 +95,7 @@ class DoublyLinkedList:
                 previous.set_link0(current.get_link0())
 
     # Print list function
-    def printList(self)
+    def printList(self):
         current = self.head
-        while current is not None
+        while current is not None:
             print(current.get_data())
