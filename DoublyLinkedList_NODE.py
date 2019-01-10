@@ -4,7 +4,7 @@
 import Node  # Node class should be in the same directory
 
 
-class DoubleLinkedList:
+class DoublyLinkedList:
     def_init(self, head=None, tail=None):
         self.head = head
         self.tail = tail
@@ -93,3 +93,9 @@ class DoubleLinkedList:
                 self.head = current.get_link0()
             else:
                 previous.set_link0(current.get_link0())
+
+    # Print list function
+    def printList(self)
+        current = self.head
+        while current is not None
+            print(current.get_data())
