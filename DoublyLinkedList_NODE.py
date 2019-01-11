@@ -1,32 +1,15 @@
 # This is a doubly linked list using a modular Node class.
 # Written by Robert De La Cruz II on Jan 10, 2019 for self-edification.
+# Last edited Jan 11, 2019
 
-import Node  # Node class should be in the same directory
+from Node import Node
 
 
-class DoublyLinkedList:
-    def _init_(self, head=None, tail=None):
+class DoublyLinkedList_NODE:
+    def __init__(self, head=None, tail=None):
         self.head = head
         self.tail = tail
-
-    # Tail insert function
-    def tailIns(self, data):
-        newNode = Node(data)
-        if head is None:
-            head = newNode
-            tail = head
-        else:
-            newNode.set_link1(tail)
-            tail.set_link0(newNode)
-            tail = tail.link0
-            head.set_link1(tail)
-
-    # Head insert function
-    def headIns(self, data):
-        newNode = Node(data)
-        newNode.set_link1(tail)
-        newNode.set_link0(head)
-        head = newNode
+        return
 
     # Get size copied from Singly Linked List
     def get_size(self):
@@ -93,9 +76,40 @@ class DoublyLinkedList:
                 self.head = current.get_link0()
             else:
                 previous.set_link0(current.get_link0())
+        return
+
+    # Head insert function
+    def headIns(self, data):
+        newNode = Node(data)
+        if self.head is None:
+            self.head = self.tail = newNode
+        else:
+            newNode.set_link1(self.tail)
+            newNode.set_link0(self.head)
+        self.head = newNode
+        return
+
+    # Tail insert function
+    def tailIns(self, data):
+        newNode = Node(data)
+        if self.head is None:
+            self.head = self.tail = newNode
+        else:
+            self.tail.set_link0(newNode)
+        self.tail = newNode
+        self.tail.set_link0(self.head)
+        self.head.set_link1(self.tail)
+        return
 
     # Print list function
     def printList(self):
+        print('\nPrinting the list: ')
         current = self.head
         while current is not None:
             print(current.get_data())
+            if current.get_link0() is self.head:
+                break
+            else:
+                current = current.get_link0()
+        return
+
