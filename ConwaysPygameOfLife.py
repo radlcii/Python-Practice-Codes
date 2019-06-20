@@ -30,7 +30,7 @@ import random
 
 # Combination or ease variables.
 tickTock = 60                         # Clock speed AKA Number of loops per second
-gridSize = 100                       # Bringing all the grid related variables into a unified variable, the rest is simple math.
+gridSize = 200                       # Bringing all the grid related variables into a unified variable, the rest is simple math.
 seedOfLife = 15                     # Sets the upper bound of the random.randint that is called to decide which cells are seeded. The chance of life is 1/seedOfLife
 BACKGROUND = (0, 0, 0)      # For setting a background color without a visible grid in a single variable
 
@@ -98,7 +98,7 @@ while not done:
     screen.fill(BACKGROUND) 
  
     # Copy grid into nextGrid
-    nextGrid = grid.copy()
+    nextGrid = list(grid)
 
     # Comparisons are made on grid. Changes made to nextGrid.
     for i in range(gridSize):
@@ -124,7 +124,7 @@ while not done:
                         color = GREEN
 
             # Copy nextGrid, with its updated info, onto grid.
-            grid = nextGrid.copy()
+            grid = list(nextGrid)
             
             # This redraws the grid every time
             pygame.draw.rect( screen,
