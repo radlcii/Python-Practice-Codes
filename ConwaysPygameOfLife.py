@@ -27,7 +27,7 @@ import random
 
 # Combination or ease variables.
 tickTock = 60               # Clock speed AKA Number of loops per second
-gridSize = 200              # Bringing all the grid related variables into a unified variable, the rest is simple math.
+gridSize = 150              # Bringing all the grid related variables into a unified variable, the rest is simple math.
 seedOfLife = 15             # Sets the upper bound of the random.randint that is called to decide which cells are seeded. The chance of life is 1/seedOfLife
 BACKGROUND = (0, 0, 0)      # For setting a background color without a visible grid in a single variable
 
@@ -113,6 +113,9 @@ while not done:
                 if (total < 2) or (total > 3):          # If starved or overcrowded
                     nextGrid[ i ][ j ] = OFF            # It dies
                     color = BACKGROUND
+                else:
+                    nextGrid[ i ][ j ] = ON             # It comes to life
+                    color = GREEN
             else:                                       # If off
                 if total == 3:
                     nextGrid[ i ][ j ] = ON             # It comes to life
