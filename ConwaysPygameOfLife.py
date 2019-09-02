@@ -26,7 +26,7 @@ import random
  
 
 # Combination or ease variables.
-tickTock = 60               # Clock speed AKA Number of loops per second
+tickTock = 10               # Clock speed AKA Number of loops per second
 gridSize = 150              # Bringing all the grid related variables into a unified variable, the rest is simple math.
 seedOfLife = 15             # Sets the upper bound of the random.randint that is called to decide which cells are seeded. The chance of life is 1/seedOfLife
 BACKGROUND = (0, 0, 0)      # For setting a background color without a visible grid in a single variable
@@ -60,6 +60,7 @@ for i in range(gridSize):
         nextGrid[i].append(0)
         if (random.randint(1,seedOfLife) is int(seedOfLife/2)):
             grid[ i ][ j ] = ON
+            color = GREEN
 
 
 # Seed the grid with life
@@ -69,7 +70,7 @@ for i in range(gridSize):
 #            grid[ i ][ j ] = ON
 
 # Seed the nextGrid, currently both of them are identical
-#grid = nextGrid
+# grid = nextGrid
 
 # The game code (runtime logic) starts here
 pygame.init()
@@ -110,11 +111,11 @@ while not done:
 
             # Conway's rules
             if (grid[ i ][ j ] == ON):                  # If alive
-                if (total < 2) or (total > 3):          # If starved or overcrowded
+                if (total < 2) or (total > 3):          # And If starved or overcrowded
                     nextGrid[ i ][ j ] = OFF            # It dies
                     color = BACKGROUND
                 else:
-                    nextGrid[ i ][ j ] = ON             # It comes to life
+                    nextGrid[ i ][ j ] = ON             # Otherwise it stays alive
                     color = GREEN
             else:                                       # If off
                 if total == 3:
@@ -138,9 +139,6 @@ while not done:
             #        if total == 3:                        # And the number of living adjacent cells is 3
             #            nextGrid[ i ][ j ] = ON           # It comes to life
             #            color = GREEN
-
-            # Copy nextGrid, with its updated info, onto grid.
-            # grid = list(nextGrid)
             
             # This redraws the grid every time
             pygame.draw.rect( screen,
@@ -164,15 +162,3 @@ while not done:
 
 # Be IDLE friendly. If you forget this line, the program will 'hang' on exit.
 pygame.quit()
- 
-
- 
- # Start with Grid, do my thing.  Change nextgrid as I go
- # Grid needs to be reset to what nextgrid is
- # swapv=grid
- # nextgrid=swapv
-
- # look into copying entire 2d arrays instead of iterative copy
-
- # if (total == 2 and g[i][j] == ON) or total == 3: ng[i][j] = ON
- 
