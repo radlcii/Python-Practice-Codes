@@ -1,0 +1,98 @@
+<!--
+    Written by Robert De La Cruz II
+    This is an HTML partial that contains some buttons to play with the CSS and a set of dropdowns and a text field within a form to act as a navbar.
+    Basically the server language grabs this file and prints it to the document that eventually gets sent to the client
+-->
+
+<!-- The "Back to Index" button is set in the top left corner of the screen.  This is in case other galleries get added later. -->
+<button class="dropbtn" style="width:7%; float:left;">  <a href="/"> To Index </a> </button>
+
+<br>
+<div class="topNav" style="float:center;">
+    <form method="post" >
+        <ul style="list-style-type:none;">
+            <li class="dropdown">
+                <button class="dropbtn"> Settings </button>
+                <div class="dropdown-content">
+                    <button class="menubtn" name="Forests_Misc"     value="Forests_Misc" > Forests Misc </button>
+                    <button class="menubtn" name="Mountains_Misc"   value="Mountains_Misc" > Mountains Misc </button>
+                    <button class="menubtn" name="Fantasy_Misc"     value="Surreal_Misc" > Fantasy Misc </button>
+                    <button class="menubtn" name="Surreal_Misc"     value="Surreal_Misc" > Surreal Misc </button>
+                </div>
+            </li>
+
+            <li class="dropdown">
+                <button class="dropbtn"> Flying </button>
+                <div class="dropdown-content">
+                    <button class="menubtn" name="Flying_Misc"      value="Flying_Misc" > Flying Misc </button>
+                    <button class="menubtn" name="Drone_Footage"    value="Drone_Footage" > Drone Footage </button>
+                    <button class="menubtn" name="Drone_Crashes"    value="Drone_Crashes" > Drone Crashes </button>
+                </div>
+            </li>
+
+            <li class="dropdown">
+                <button class="dropbtn"> Superheroes </button>
+                <div class="dropdown-content">
+                    <button class="menubtn" name="Superheroes_Misc" value="Superheroes_Misc" > Misc Superheroes </button>
+                    <button class="menubtn" name="Superman"         value="Superman" > Superman </button>
+                    <button class="menubtn" name="Batman"           value="Batman" > Batman </button>
+                    <button class="menubtn" name="Deadpool"         value="Deadpool" > Deadpool </button>
+                    <button class="menubtn" name="X-Men"            value="X-Men" > X-Men </button>
+                </div>
+            </li>
+
+            <li class="dropdown">
+                <button class="dropbtn"> Cosplays </button>
+                <div class="dropdown-content">
+                    <button class="menubtn" name="Misc_Cosplays"    value="Misc_Cosplays" > Misc Cosplays </button>
+                    <button class="menubtn" name="40k_Cosplays"     value="Warhammer_40k_Cosplays" > Warhammer 40k </button>
+                    <button class="menubtn" name="Game_Cosplays"    value="Game_Cosplays" > Game </button>
+                    <button class="menubtn" name="Movie_Cosplays"   value="Movie_Cosplays" > Movie </button>
+                </div>
+            </li>
+
+            <li class="dropdown">
+                <button class="dropbtn"> Image Galleries </button>
+                <div class="dropdown-content">
+                    <a href="#PATH TO GALLERY FILE#" target="_blank" > Unsorted Images </a>
+                    <a href="#PATH TO GALLERY FILE#" target="_blank" > Dungeons & Dragons </a>
+                    <a href="#PATH TO GALLERY FILE#" target="_blank" > Warhammer 40k </a>
+                    <a href="#PATH TO GALLERY FILE#" target="_blank" > Monsters </a>
+                    <a href="#PATH TO GALLERY FILE#" target="_blank" > The Old Ones </a>
+                </div>
+            </li>
+
+            <li class="dropdown">
+                <button class="dropbtn"> Animations </button>
+                <div class="dropdown-content">
+                    <button class="menubtn" name="Animation_3D" value="Animation_3D" > 3D Animations </button>
+                    <button class="menubtn" name="Cartoon"      value="Cartoon" > Cartoons </button>
+                </div>
+            </li>
+
+            <li class="dropdown">
+                <button class="dropbtn"> Flash </button>
+                <div class="dropdown-content">
+                    <button class="menubtn" name="Animations_FLASH" value="Animations_FLASH" > Flash Animations </button>
+                    <button class="menubtn" name="Games_FLASH"      value="Games_FLASH" > Games </button>
+                </div>
+            </li>
+        </ul>
+
+        <table style="display:inline-block; text-align:center;">
+            <tr>
+                <td>
+                    <label for="searchTags"> Search by Tags </label>
+                    <br>
+                    <input type="text" name="searchTags" >
+                </td>
+                <td>
+                    <label for="sendForm"></label>
+                    <br>
+                    <input type="submit" >
+                </td>
+            </tr>
+        </table>
+
+    </form>
+</div>

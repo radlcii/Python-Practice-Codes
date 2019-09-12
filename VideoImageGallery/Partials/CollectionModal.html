@@ -1,0 +1,26 @@
+<!-- This goes at the bottom of the webpage -->
+<!-- A modal from w3schools.com for displaying queried images -->
+<div id="myModal" class="modal">
+    <img class="myImg" id="img01">
+</div>
+
+<!-- The modal's script also from w3schools.com -->
+<script>
+    var modal = document.getElementById("myModal");
+    var i;
+
+    var img = document.getElementsByClassName("myImg");
+    var modalImg = document.getElementById("img01");
+
+    for(i=0;i< img.length;i++) {    
+        img[i].onclick = function(){
+
+        modal.style.display = "block";
+        modalImg.src = this.src;
+        }
+    }
+    var span = document.getElementsByClassName("modal")[0];
+    span.onclick = function() { 
+        modal.style.display = "none";
+    }
+</script>

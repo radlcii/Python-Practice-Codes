@@ -1,0 +1,30 @@
+<!-- JS, CSS and HTML for this found at w3schools.com -->
+<!-- Adds a "back to top" button that follows in the bottom corner of the screen-->
+<button onclick="topFunction()" id="linkToTop" title="Go to top">Top</button> 
+
+<!-- Part of the "back to top" button's code. Part 1 From w3schools.com -->
+<script>
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function() {scrollFunction()};
+</script>
+
+<!-- Part of the "back to top" button's code. Part 2 From w3schools.com -->
+<script>
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            document.getElementById("linkToTop").style.display = "block";
+        } 
+        else {
+            document.getElementById("linkToTop").style.display = "none";
+        }
+    }
+</script>
+
+<!-- Part of the "back to top" button's code. Part 3 From w3schools.com -->
+<script>
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+        document.body.scrollTop = 0; // For Safari
+        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    } 
+</script>

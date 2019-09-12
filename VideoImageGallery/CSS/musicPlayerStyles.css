@@ -1,0 +1,217 @@
+/*
+    Retrieved from: https://codepen.io/craigstroman/pen/aOyRYx "HTML5 Audio Player with Playlist" by Craig Stroman
+    Retrieved on 8/21/2019
+*/
+@import "//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.css";
+
+@media (min-width: 1200px) {}
+
+.screen-reader-text { /* Reusable, toolbox kind of class */
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+}
+.screen-reader-text .disabled {
+  color: #000; 
+  cursor: default;
+}
+.screen-reader-text .show {
+  display: inline-block !important;
+}
+
+body {
+  margin: 10px 0 0 0;
+}
+.container {
+  border: 3px solid gold;
+  background-color: rgb(0,0,0,0.500);
+  font-family: arial, helvetica, sans-serif;
+  font-size: 1em;
+  margin: 0 auto;
+  width: 500px;
+}
+.container .player {
+  height: 60px;
+  margin: 0;
+  position: relative;
+  width: 400px;
+}
+
+
+.container .player .large-toggle-btn {
+  border: 1px solid #d9d9d9;
+  border-radius: 2px;
+  float: left;
+  font-size: 1.5em;
+  height: 50px;
+  margin: 0 10px 0 0;
+  overflow: hidden;
+  padding: 5px 0 0 0;
+  position: relative;
+  text-align: center;
+  vertical-align: bottom;
+  width: 54px;
+}
+.container .player .large-toggle-btn .large-play-btn {
+  cursor: pointer; 
+  display: inline-block;
+  position: relative;
+  top: -14%;
+}
+.container .player .large-toggle-btn large-play-btn::before {
+  content: "\f04b";
+  font: 1.5em/1.75 "FontAwesome";
+}
+.container .player .large-toggle-btn .large-pause-btn {  
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  top: -13%;            
+}
+.container .player .large-toggle-btn large-pause-btn::before {
+  content: "\f04c";
+  font: 1.5em/1.75 "FontAwesome";
+}
+
+.container .player .info-box {
+  bottom: 10px;
+  left: 65px;
+  position: absolute;
+  top: 15px;
+}
+.container .player .info-box .track-info-box {
+  float: left;
+  font-size: 12px;
+  margin: 0 0 6px 0;
+  visibility: hidden;
+  width: 400px; 
+}
+.container .player .info-box .track-info-box .track-title-text {
+  display: inline-block;
+}
+.container .player .info-box .track-info-box .audio-time {
+  display: inline-block;
+  padding: 0 0 0 5px;
+  width: 80px;
+}
+
+.container .player .progress-box {
+  float: left;
+  min-width: 270px;
+  position: relative;
+}
+.container .player .progress-box .progress-cell {
+  height: 12px;
+  position: relative;
+}
+.container .player .progress-box .progress {
+  background: #fff;
+  border: 1px solid #d9d9d9;
+  height: 8px;
+  position: relative;
+  width: auto;
+}
+.container .player .progress-box .progress-buffer {
+  background: #337ab7;
+  height: 100%;
+  width: 0;
+}
+.container .player .progress-box .progress-indicator {
+  background: #fff;
+  border: 1px solid #bebebe;
+  border-radius: 3px;
+  cursor: pointer;
+  height: 10px;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  top: -2px;
+  width: 22px;
+}
+
+.container .player .controls-box {
+  bottom: 10px;
+  left: 350px;
+  position: absolute; 
+}
+.container .player .controls-box .previous-track-btn {
+  cursor: pointer;
+  display: inline-block;
+}
+previous-track-btn::before {
+  content: "\f049";
+  font: 1em "FontAwesome";
+}
+.container .player .controls-box .next-track-btn {  
+  cursor: pointer;
+  display: inline-block;        
+} 
+next-track-btn::before {
+  content: "\f050";
+  font: 1em "FontAwesome";
+}
+
+
+.container .play-list {
+  text-align:left;
+  display: block;
+  margin: 0 auto 20px auto;
+  width: 100%;
+}
+.container .play-list .play-list-row {
+  display: block;
+  margin: 10px 0;
+  width: 100%;
+}
+.container .play-list .play-list-row .track-title .playlist-track .hover {
+  text-decoration: underline;
+}
+.container .play-list .play-list-row .track-title .playlist-track {
+  color: gold;
+  text-decoration: none;
+}
+
+.container .play-list .play-list-row .small-toggle-btn {
+  border: 1px solid #d9d9d9;
+  border-radius: 2px;
+  cursor: pointer;
+  display: inline-block;
+  height: 20px;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  vertical-align: middle;
+  width: 20px;
+}
+.container .play-list .play-list-row .small-toggle-btn .small-play-btn {
+  display: inline-block;
+} 
+small-play-btn::before {
+  content: "\f04b";
+  font: 0.85em "FontAwesome";
+}
+.container .play-list .play-list-row .small-toggle-btn .small-pause-btn {
+  display: inline-block;
+}
+small-pause-btn::before {
+  content: "\f04c";
+  font: 0.85em "FontAwesome";
+}
+
+.container .play-list .play-list-row .track-number {
+  display: inline-block;
+}
+.container .play-list .play-list-row .track-title {
+  display: inline-block;
+}
+.container .play-list .play-list-row .track-title .playlist-track {
+  text-decoration: none;
+}
+playlist-track:hover {
+  text-decoration: underline;
+}
+
+.container .play-list .play-list-row .track-title.active-track {
+  font-weight: bold;
+}
